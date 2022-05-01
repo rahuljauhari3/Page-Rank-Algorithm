@@ -1,7 +1,8 @@
 import networkx as nx
 import numpy as np
 
-'''HITS is an iterative algorithm based on the linkage of the documents on the web that rates Web pages.'''
+'''Hyperlink Induced Topic Search (HITS) Algorithm is a Link Analysis Algorithm that rates webpages, developed by Jon Kleinberg. 
+This algorithm is used to the web link-structures to discover and rank the webpages relevant for a particular search. '''
 
 #Read graph object in Python pickle format.
 web_graph=nx.read_gpickle("web_graph.gpickle")
