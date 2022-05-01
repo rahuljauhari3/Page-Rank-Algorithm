@@ -34,7 +34,7 @@ arr4 = np.add(authority_matrix, np.add(hub_matrix, hub_transpose))
 # create the baseset
 arr5 = []
 
-for i in range(0, 99):
+for i in range(0, 100):
     if(arr4[i] != 0):
         # add i to a vector arr5
         arr5.append(i)
