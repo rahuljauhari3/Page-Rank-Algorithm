@@ -82,26 +82,26 @@ def normalise(x):
     return fac, x_n
 
 
-print(f"Power method for probability transition matrix without random teleportations:")
-l1 = [1 / n] * n
-list5 = []
+# print(f"Power method for probability transition matrix without random teleportations:")
+# l1 = [1 / n] * n
+# list5 = []
 
 
-def power_rec(l):
-    l1 = np.dot(l, matrix1)
-    dist = np.sum((l - l1) ** 2)
-    list5.append(l1)
-    if dist > 0.001:
-        dist = power_rec(l1)
-    return list5
+# def power_rec(l):
+#     l1 = np.dot(l, matrix1)
+#     dist = np.sum((l - l1) ** 2)
+#     list5.append(l1)
+#     if dist > 0.001:
+#         dist = power_rec(l1)
+#     return list5
 
 
-y = power_rec(l1)
-poweigenval, x = normalise(x)
-print(x)
+# y = power_rec(l1)
+# poweigenval, x = normalise(x)
+# print(x)
 
-for i in range(len(y)):
-    print(y[i])
+# for i in range(len(y)):
+#     print(y[i])
 
 print(f"Power method for probability transition matrix with random teleportations:")
 l1 = [1 / n] * n
