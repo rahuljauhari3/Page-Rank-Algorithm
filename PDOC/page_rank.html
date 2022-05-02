@@ -38,7 +38,7 @@ matrix1 = np.zeros((n, n))
 for i in range(c):
     x, y = map(int, input().split())
     matrix[x - 1][y - 1] = 1
-# random teleportation with probability is a
+&#39;&#39;&#39; random teleportation with probability is a function of the number of nodes&#39;&#39;&#39;
 a = 0.1
 for i in range(n):
     count = 0
@@ -48,17 +48,17 @@ for i in range(n):
     for j in range(n):
         if matrix[i][j] == 1:
             matrix[i][j] = 1 / count
-# probability to go through a link is 1-a
+&#39;&#39;&#39; probability to go through a link is 1-a&#39;&#39;&#39;
 matrix1 = matrix
 matrix = matrix * (1 - a)
 matrix = matrix + (a / n)
 
-# without random teleportations matrix1
-# with random teleportations matrix
+&#39;&#39;&#39;without random teleportations matrix1
+ with random teleportations matrix&#39;&#39;&#39;
 
 print(
     f&#34;Probability transition matrix without random teleportations:\n{matrix1}\n&#34;)
-# left eigenvector of matrix1
+&#39;&#39;&#39; left eigenvector of matrix1&#39;&#39;&#39;
 w1, vl1 = eig(np.array(matrix1), left=True, right=False)
 sum1 = 0
 list1 = []
@@ -67,7 +67,7 @@ for x in w1:
     if x == 1:
         list1 = vl1[:, sum1]
     sum1 = sum1+1
-# vl1 left eigen vector
+&#39;&#39;&#39; vl1 left eigen vector of matrix1&#39;&#39;&#39;
 print(&#34;Left eigen vector:&#34;, list1, &#34;\n&#34;)
 sum1 = 0
 list2 = []
@@ -85,7 +85,7 @@ sum = 0
 list = []
 maxeigenvalue = 0
 maxeigenvalueindex = 0
-# eigen value can not be 1 but we have to consider max eigen valuesfor our calculation
+&#39;&#39;&#39; eigen value can not be 1 but we have to consider max eigen valuesfor our calculation&#39;&#39;&#39;
 for x in w:
     if x &gt; maxeigenvalue:
         maxeigenvalue = x
@@ -122,13 +122,13 @@ for i in range(max_iterations):
     x = np.dot(a,x)
     poweigenval, x = normalise(x)
  
-#poweigenval is the eigenval calculated using power iteration method
+&#39;&#39;&#39;power eigenval is the eigenval calculated using power iteration method&#39;&#39;&#39;
  
 for i in range(max_iterations):
     y = np.dot(atranspose, y)
     transpoweigen, y = normalise(y)
  
-#y is the lefteigenvector
+&#39;&#39;&#39;y is the lefteigenvector&#39;&#39;&#39;
  
 print(&#34;Principal Left Eigenvector without Random Teleportations using Power Iteration:\n&#34;)
 for x in y:
@@ -174,6 +174,18 @@ for i in range(len(x)):
 <section>
 </section>
 <section>
+<h2 class="section-title" id="header-variables">Global variables</h2>
+<dl>
+<dt id="page_rank.matrix"><code class="name">var <span class="ident">matrix</span></code></dt>
+<dd>
+<div class="desc"><p>without random teleportations matrix1
+with random teleportations matrix</p></div>
+</dd>
+<dt id="page_rank.maxeigenvalueindex"><code class="name">var <span class="ident">maxeigenvalueindex</span></code></dt>
+<dd>
+<div class="desc"><p>eigen value can not be 1 but we have to consider max eigen valuesfor our calculation</p></div>
+</dd>
+</dl>
 </section>
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
@@ -222,6 +234,12 @@ for i in range(len(x)):
 <ul></ul>
 </div>
 <ul id="index">
+<li><h3><a href="#header-variables">Global variables</a></h3>
+<ul class="">
+<li><code><a title="page_rank.matrix" href="#page_rank.matrix">matrix</a></code></li>
+<li><code><a title="page_rank.maxeigenvalueindex" href="#page_rank.maxeigenvalueindex">maxeigenvalueindex</a></code></li>
+</ul>
+</li>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
 <li><code><a title="page_rank.normalise" href="#page_rank.normalise">normalise</a></code></li>
