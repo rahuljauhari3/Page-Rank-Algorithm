@@ -1,3 +1,4 @@
+from operator import itemgetter
 import numpy as np
 from scipy.linalg import eig
 # take input from user
@@ -82,26 +83,46 @@ def normalise(x):
     return fac, x_n
 
 
-# print(f"Power method for probability transition matrix without random teleportations:")
-# l1 = [1 / n] * n
-# list5 = []
-
-
-# def power_rec(l):
-#     l1 = np.dot(l, matrix1)
-#     dist = np.sum((l - l1) ** 2)
-#     list5.append(l1)
-#     if dist > 0.001:
-#         dist = power_rec(l1)
-#     return list5
-
-
-# y = power_rec(l1)
-# poweigenval, x = normalise(x)
-# print(x)
-
-# for i in range(len(y)):
-#     print(y[i])
+print(f"Power method for probability transition matrix without random teleportations:")
+a = np.array(matrix1)
+max_iterations = 1000
+atranspose = np.transpose(a)
+x=np.ones(len(a))
+y=np.ones(len(a))
+ 
+for i in range(max_iterations):
+    x = np.dot(a,x)
+    poweigenval, x = normalise(x)
+ 
+#poweigenval is the eigenval calculated using power iteration method
+ 
+for i in range(max_iterations):
+    y = np.dot(atranspose, y)
+    transpoweigen, y = normalise(y)
+ 
+#y is the lefteigenvector
+ 
+print("Principal Left Eigenvector without Random Teleportations using Power Iteration:\n")
+for x in y:
+    print(x,end="  ")
+print("\n")
+ 
+index=1
+result=[]
+for x in y:
+    result.append([index,y[index-1]])
+    index=index+1
+ 
+result=sorted(result,key=itemgetter(1),reverse=True)
+ 
+print("Page Rankings:\nRank\tPage No\tProbablity")
+index=1
+for x in result:
+    print(index,end="\t")
+    for j in x:
+        print(j,end="\t")
+    index=index+1
+    print("\n")
 
 print(f"Power method for probability transition matrix with random teleportations:")
 l1 = [1 / n] * n
