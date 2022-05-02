@@ -10,7 +10,7 @@ matrix1 = np.zeros((n, n))
 for i in range(c):
     x, y = map(int, input().split())
     matrix[x - 1][y - 1] = 1
-# random teleportation with probability is a
+''' random teleportation with probability is a function of the number of nodes'''
 a = 0.1
 for i in range(n):
     count = 0
@@ -20,17 +20,17 @@ for i in range(n):
     for j in range(n):
         if matrix[i][j] == 1:
             matrix[i][j] = 1 / count
-# probability to go through a link is 1-a
+''' probability to go through a link is 1-a'''
 matrix1 = matrix
 matrix = matrix * (1 - a)
 matrix = matrix + (a / n)
 
-# without random teleportations matrix1
-# with random teleportations matrix
+'''without random teleportations matrix1
+ with random teleportations matrix'''
 
 print(
     f"Probability transition matrix without random teleportations:\n{matrix1}\n")
-# left eigenvector of matrix1
+''' left eigenvector of matrix1'''
 w1, vl1 = eig(np.array(matrix1), left=True, right=False)
 sum1 = 0
 list1 = []
@@ -39,7 +39,7 @@ for x in w1:
     if x == 1:
         list1 = vl1[:, sum1]
     sum1 = sum1+1
-# vl1 left eigen vector
+''' vl1 left eigen vector of matrix1'''
 print("Left eigen vector:", list1, "\n")
 sum1 = 0
 list2 = []
@@ -57,7 +57,7 @@ sum = 0
 list = []
 maxeigenvalue = 0
 maxeigenvalueindex = 0
-# eigen value can not be 1 but we have to consider max eigen valuesfor our calculation
+''' eigen value can not be 1 but we have to consider max eigen valuesfor our calculation'''
 for x in w:
     if x > maxeigenvalue:
         maxeigenvalue = x
@@ -94,13 +94,13 @@ for i in range(max_iterations):
     x = np.dot(a,x)
     poweigenval, x = normalise(x)
  
-#poweigenval is the eigenval calculated using power iteration method
+'''power eigenval is the eigenval calculated using power iteration method'''
  
 for i in range(max_iterations):
     y = np.dot(atranspose, y)
     transpoweigen, y = normalise(y)
  
-#y is the lefteigenvector
+'''y is the lefteigenvector'''
  
 print("Principal Left Eigenvector without Random Teleportations using Power Iteration:\n")
 for x in y:
