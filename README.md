@@ -9,11 +9,9 @@ This assignment is provided to us by Professor N.L.Bhanu Murthy, IC of course CS
 
 - Install Python 3.6+
 
-You need to install operators,matpotlib,nltk and numpy for page ranking. You can do it via pip:
+You need to install numpy for page ranking. You can do it via pip:
 
 ```bash
-pip3 install -U operators
-pip3 install -U nltk
 pip3 install -U numpy
 ```
 
