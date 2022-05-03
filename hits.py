@@ -15,7 +15,6 @@ query = query.split()
 '''In the HITS algorithm, we retrieve the most relevant pages to the search query. 
 This set is called the root set and can be obtained by taking the top pages returned by a text-based search algorithm.'''
 arr = np.zeros(100)
-
 for i in range(0,100) :
     document = web_graph.nodes[i]['page_content']
     temp=document.split()
@@ -25,6 +24,9 @@ for i in range(0,100) :
             arr[i]=1
             break
 arr=np.array(arr)
+for i in range(len(arr)):
+    if arr[i]==1:
+        print("root_set:",i)
 
 #create adjacency matrix arr1
 adj=nx.to_numpy_array(web_graph)
@@ -87,6 +89,9 @@ while(step<=1000):
 '''Result contains all the nodes involved in the subgraph. 
 Hubvector contains the hubscores and authorityvector contains the authorityscores of those respective nodes'''
 result=list(subgraph.nodes)
+print("base_set:",result)
+
+
 
 print("\nNode\tHub Values:")
 step=0
@@ -101,3 +106,5 @@ for value in authorityvector:
     print(result[step],end="\t")
     print(value,end="\n")
     step=step+1
+
+

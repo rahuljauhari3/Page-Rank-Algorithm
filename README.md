@@ -39,7 +39,17 @@ b.Probability transition matrix
 c.Eigen values and Left Eigen Vector of probability transition matrix-Using the linear algebra module in scipy.
 eigenval,eigenleftvector=linalg.eig(a=np.array(PTM),b=None,left=True,right=False,overwrite_a=False,overwrite_b=False,check_finite=False)
 
-d.Displaying Page Rank:Principal left eigen vector indicates the probability of being on a web page with that node value.
+d.Power method-np.array(matrix1)
+               max_iterations = 1000
+               atranspose = np.transpose(a)
+               x=np.ones(len(a))
+               y=np.ones(len(a))
+
+e.Eigen value by using power method-for i in range(max_iterations):
+                                    y = np.dot(atranspose, y)
+                                    transpoweigen, y = normalise(y)
+
+f.Displaying Page Rank:Principal left eigen vector indicates the probability of being on a web page with that node value.
     result=sorted(result,key=itemgetter(1),reverse=True)
     index=1
     for x in result:
@@ -53,8 +63,9 @@ Page Rank Algorithm includes:
 1. Store connections from the graph in a list.
 2. Count the number of outgoing connections from a node
 3. Constructing the probability transition matrix.
-4. Calculate the eigenvalues and the left eigenvectors
-5. Displaying the Principal left eigenvalue which indicates the probability of being on each webpage.
+4. Calculate the left eigenvectors
+5.Calculating eigen value using power method.
+6. Displaying the Principal left eigenvalue which indicates the probability of being on each webpage.
 
 **Test Case**  
 Query: 4
